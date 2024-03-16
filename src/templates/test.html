@@ -7,12 +7,32 @@
 </head>
 <body>
     <h1>Transfer SOL</h1>
-    <form action="/transfer" method="post">
+    <form id="transferForm">
         <label for="amount">Amount:</label>
         <input type="text" id="amount" name="amount" required>
         <label for="recipient">Recipient Address:</label>
-        <input type="text" id="recipient" name="recipient">
+        <input type="text" id="recipient" name="recipient" required>
         <button type="submit">Transfer</button>
     </form>
+
+    <script>
+        document.getElementById("transferForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch('/transfer', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+        });
+    </script>
 </body>
 </html>
