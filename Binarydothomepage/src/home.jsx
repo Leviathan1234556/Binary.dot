@@ -10,10 +10,10 @@ function Home() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/users') // Correct endpoint for fetching users
+    axios.get('https://binary-dot.vercel.app/users') 
       .then(response => {
         if (response.data.length > 0) {
-          setUser(response.data[0]); // Assuming you want the first user
+          setUser(response.data[0]); 
         }
       })
       .catch(err => console.log(err));
