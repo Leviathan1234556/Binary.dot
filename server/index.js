@@ -6,7 +6,7 @@ const UserModel = require('./models/users');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ['https://binary-dot-975m.vercel.app/'],
+    origin: ['https://binary-dot-975m.vercel.app'],
     methods: ['POST', 'GET'],
     credentials: true
 }));
