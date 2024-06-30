@@ -8,6 +8,7 @@ import axios from 'axios';
 
 function Home() {
   const [user, setUser] = useState(null);
+  axios.defaults.withCredentials = true;
 
   useEffect(() => {
     axios.get('https://binary-dot.vercel.app/users') 
