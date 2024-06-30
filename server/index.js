@@ -5,11 +5,7 @@ const UserModel = require('./models/users');
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-    origin: ['https://binary-dot-975m.vercel.app'],
-    methods: ['POST', 'GET'],
-    credentials: true
-}));
+app.use(cors());
 
 mongoose.connect("mongodb://127.0.0.1:27017/Users", {
     useNewUrlParser: true,
